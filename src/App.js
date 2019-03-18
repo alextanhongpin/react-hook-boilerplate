@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import './App.css'
+
+// Lazy-load pages.
+const Home = React.lazy(() => import('component/page/Home'))
+const NoMatch = React.lazy(() => import('component/page/NoMatch'))
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch className='App'>
+          <Route exact path='/' component={Home} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Suspense>
+    )
   }
 }
 
-export default App;
+export default App
