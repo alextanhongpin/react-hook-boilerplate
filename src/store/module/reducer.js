@@ -5,11 +5,7 @@ export default (state, action) => {
         ...state,
         name: action.name
       }
-    default:
-      return state
+    default: return state
+      // throw new Error(`"${action.type}" is not implemented`)
   }
-  // return {
-  //   moduleA: reducer(state.moduleA, action),
-  //   moduleB: reducer(state.moduleB, action),
-  // }
 }

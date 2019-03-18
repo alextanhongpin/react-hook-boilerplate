@@ -5,7 +5,6 @@ import Button from 'component/Button'
 import logo from '../../logo.svg'
 const View = () =>
   <>
-
     <header className='App-header'>
       <img src={logo} className='App-logo' alt='logo' />
       <p>
@@ -21,6 +20,6 @@ const View = () =>
       </a>
     </header>
     <Button />
-    </>
+  </>
 
 export default View

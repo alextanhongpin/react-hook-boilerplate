@@ -4,7 +4,7 @@ import { useDispatch, useMappedState } from 'redux-react-hook'
 const View = () => {
   const mapState = useCallback((state) => {
     return {
-      name: state.name
+      name: state.module.name
     }
   }, [])
 

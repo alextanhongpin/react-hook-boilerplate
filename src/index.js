@@ -1,17 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-import { StoreContext } from 'redux-react-hook'
 import { BrowserRouter } from 'react-router-dom'
+import { StoreContext } from 'redux-react-hook'
 
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import initialState from 'store'
-import reducer from 'reducer'
+
+import store from 'store'
 
 ReactDOM.render(
-  <StoreContext.Provider value={createStore(reducer, initialState)}>
+  <StoreContext.Provider value={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
